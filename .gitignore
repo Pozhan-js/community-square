@@ -2,5 +2,5 @@
 /.hbuilderx/
 /node_modules/
 /uni_modules/
-/.gitignore/
+/.DS_Store/
 ```
