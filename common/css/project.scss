@@ -67,15 +67,19 @@ view {
     transition: transform 0.3s;
   }
 }
+
 .arrow::after {
   content: "\e606";
 }
+
 .arrow.active::after {
   transform: rotate(180deg) translate(4rpx, -1rpx);
 }
+
 .arrow-fill::after {
   content: "\e6b0";
 }
+
 .arrow-fill.active::after {
   transform: rotate(180deg);
 }
@@ -91,6 +95,7 @@ view {
 }
 
 $tags-height: 40rpx;
+
 // 标签盒
 .tags-box {
   display: flex;
@@ -112,6 +117,7 @@ $tags-height: 40rpx;
   padding: 0 12rpx;
   line-height: $tags-height;
   font-size: 22rpx;
+
   .u-icon {
     margin-right: 0.25em;
   }
@@ -181,4 +187,84 @@ $tags-height: 40rpx;
       background-position: 0 50%;
     }
   }
+}
+
+
+.box {
+  padding: 0 32rpx;
+}
+
+.box-all {
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.box-half {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+$paddings: (
+  left,
+  right,
+  top,
+  bottom
+);
+
+$nums: (
+  32,
+  20,
+  22,
+  24,
+  26,
+  28,
+  30,
+  42,
+);
+
+@each $num in $nums {
+  .padding-#{$num} {
+    padding: #{$num}rpx;
+    box-sizing: border-box;
+  }
+}
+
+@each $padding in $paddings {
+  .padding-#{$padding} {
+    padding-#{$padding}: 32rpx;
+  }
+}
+
+.flex-a-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-j-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-a-center-j-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-a-center-j-space-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-a-center-j-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-hidden {
+  overflow: hidden; //超出的文本隐藏
+  text-overflow: ellipsis; //溢出用省略号显示
+  white-space: nowrap; //溢出不换行
 }
