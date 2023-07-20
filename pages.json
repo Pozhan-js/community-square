@@ -89,6 +89,18 @@
 					"style": {
 						"navigationBarTitleText": "编辑地址"
 					}
+				},
+				{
+					"path": "pay-result",
+					"style": {
+						"navigationBarTitleText": "支付结果"
+					}
+				},
+				{
+					"path": "order-detail",
+					"style": {
+						"navigationBarTitleText": "订单详情"
+					}
 				}
 			]
 		}

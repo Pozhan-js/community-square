@@ -2,7 +2,7 @@
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-07-19 14:41:46
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-20 15:14:27
+ * @LastEditTime: 2023-07-20 17:05:31
  * @FilePath: /community-square/pages-square/pay.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -82,7 +82,9 @@
         class="reserve-footer-product flex-a-center-j-space-between padding-32"
       >
         <view>商品合计：<text>￥88</text></view>
-        <view class="reserve-footer-product-btn">提交订单</view>
+        <view class="reserve-footer-product-btn" @click="toPayResult"
+          >提交订单</view
+        >
       </view>
     </view>
     <!-- 时间选择器 -->
@@ -133,6 +135,12 @@ export default {
     toAddrManager() {
       uni.navigateTo({
         url: "/subPages/square/address-manage",
+      });
+    },
+    // 跳转到支付成功页面
+    toPayResult() {
+      uni.navigateTo({
+        url: "/subPages/square/pay-result",
       });
     },
   },
