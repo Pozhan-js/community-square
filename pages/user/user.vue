@@ -58,9 +58,19 @@ export default {
     },
   },
   methods: {
+    /**
+     * @description: 跳转登录页
+     * @return {*}
+     */    
     handleLogin() {
       this.$jump("/subPages/user/login/login");
     },
+
+    /**
+     * @description: 
+     * @param {*} item
+     * @return {*}
+     */    
     handleCellClick(item) {
       if (!item.path) this.$message("功能开发中...", "none");
       else this.$jump(item.path);

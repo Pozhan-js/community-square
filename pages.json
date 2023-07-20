@@ -68,6 +68,17 @@
 					}
 				}
 			]
+		},
+		{
+			"root": "subPages/square",
+			"pages": [
+				{
+					"path": "reserve",
+					"style": {
+						"navigationBarTitleText": "预约"
+					}
+				}
+			]
 		}
 	],
 	"tabBar": {

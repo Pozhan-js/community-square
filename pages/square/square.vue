@@ -4,6 +4,7 @@
       <view
         class="square-container-item"
         v-for="(item, _) in squareList"
+        @click="toDetail"
         :key="_"
       >
         <image
@@ -69,6 +70,13 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+   toDetail(){
+    uni.navigateTo({
+       url:'/subPages/square/reserve'
+    });
+   }
   },
 };
 </script>
