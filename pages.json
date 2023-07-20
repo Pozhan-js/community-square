@@ -77,6 +77,18 @@
 					"style": {
 						"navigationBarTitleText": "预约"
 					}
+				},
+				{
+					"path": "address-manage",
+					"style": {
+						"navigationBarTitleText": "地址管理"
+					}
+				},
+				{
+					"path": "edit-address",
+					"style": {
+						"navigationBarTitleText": "编辑地址"
+					}
 				}
 			]
 		}

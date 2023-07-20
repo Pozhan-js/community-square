@@ -2,7 +2,7 @@
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-07-19 14:41:46
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-19 17:30:37
+ * @LastEditTime: 2023-07-20 15:14:27
  * @FilePath: /community-square/pages-square/pay.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -24,7 +24,7 @@
           </view>
         </view>
         <view>
-          <u-icon name="arrow-right"></u-icon>
+          <u-icon name="arrow-right" @click="toAddrManager"></u-icon>
         </view>
       </view>
 
@@ -57,14 +57,41 @@
         ></u--textarea>
       </view>
       <u-gap height="10" bgColor="#F9F9F9"></u-gap>
-    </view>
 
+      <view class="reserve-form-item flex-a-center-j-space-between padding-32">
+        <view class="reserve-form-item-label">支付：</view>
+        <view class="flex-a-center">
+          <image
+            style="width: 40rpx; height: 36rpx; margin-right: 10rpx"
+            src="https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230720_fa6dfccee1d64e8c8ce420ed148796c2.png"
+            mode=""
+          />
+          <view>微信支付</view>
+          <!-- <u-icon name="arrow-right"></u-icon> -->
+        </view>
+      </view>
+      <u-line></u-line>
+      <view class="reserve-form-item flex-a-center-j-space-between padding-32">
+        <view class="reserve-form-item-label">商品合计：</view>
+        <view>￥88</view>
+      </view>
+    </view>
+    <!-- footer -->
+    <view class="reserve-footer">
+      <view
+        class="reserve-footer-product flex-a-center-j-space-between padding-32"
+      >
+        <view>商品合计：<text>￥88</text></view>
+        <view class="reserve-footer-product-btn">提交订单</view>
+      </view>
+    </view>
     <!-- 时间选择器 -->
     <u-datetime-picker
       :show="show"
       v-model="pickTime"
       @confirm="confirmPickTime"
-      mode="date"
+      @change="changePickTime"
+      mode="datetime"
     ></u-datetime-picker>
   </view>
 </template>
@@ -89,8 +116,24 @@ export default {
       console.log(this.show);
     },
     confirmPickTime() {
+      console.log(this.pickTime);
+      this.addrForm.time = uni.$u.timeFormat(
+        this.pickTime,
+        "yyyy-mm-dd hh:MM:ss"
+      );
+      console.log(this.addrForm.time);
       this.show = false;
-      this.addrForm.time = uni.$u.timeFormat(this.pickTime, "yyyy-mm-dd");
+    },
+    changePickTime(date) {
+      console.log(date);
+      this.pickTime = date.value;
+    },
+
+    // 跳转到地址管理
+    toAddrManager() {
+      uni.navigateTo({
+        url: "/subPages/square/address-manage",
+      });
     },
   },
 };
@@ -99,6 +142,7 @@ export default {
 <style lang="scss" scoped>
 .reserve {
   width: 100vw;
+  position: relative;
 
   &-form {
     font-size: 30rpx;
@@ -133,6 +177,33 @@ export default {
       &-label {
         margin-right: 20rpx;
       }
+    }
+  }
+
+  &-footer {
+    width: 100vw;
+    height: 220rpx;
+    background-color: #f9f9f9;
+    position: fixed;
+    bottom: 0;
+
+    text {
+      font-size: 38rpx;
+      font-weight: bold;
+      color: #ff2d2d;
+    }
+
+    .reserve-footer-product-btn {
+      width: 246rpx;
+      height: 88rpx;
+      background: #5991fa;
+      box-shadow: 0rpx 6rpx 10rpx 1rpx rgba(0, 0, 0, 0.16);
+      border-radius: 53rpx;
+      text-align: center;
+      line-height: 88rpx;
+      font-size: 38rpx;
+      font-weight: bold;
+      color: #ffffff;
     }
   }
 }

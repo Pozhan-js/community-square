@@ -1,170 +1,67 @@
-<!--
- * @Author: Why so serious my dear 854059946@qq.com
- * @Date: 2023-05-29 16:07:39
- * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-18 15:52:40
- * @FilePath: /community-square/pages/index/index.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 <template>
-  <view class="home">
-    <u-swiper :list="list1" :height="175" :indicator="true"></u-swiper>
-
-    <!-- body布局 -->
-    <view class="home-application box-all">
-      <view class="box1 padding-30">废品回收</view>
-      <view class="box2 padding-30">日常保洁</view>
-      <view class="box3 padding-30">新居开荒</view>
-    </view>
-
-    <!-- 社区服务 -->
-    <view class="home-serve box-half">
-      <view
-        class="home-serve-item"
-        v-for="(item, _) in serveList"
-        :key="_"
-        :style="{ backgroundColor: item.bgcolor, color: item.color }"
-      >
-        <view class="home-serve-item-name">{{ item.name }}</view>
-        <image style="width: 70rpx; height: 72rpx" :src="item.icon" mode="" />
-      </view>
-    </view>
-
-    <view class="home-other box-half">
-      <view class="home-other-item footer1 padding-20">车务代办</view>
-      <view class="home-other-item footer2 padding-20">房屋租售</view>
-    </view>
-  </view>
+	<view class="content">
+		<image class="logo" src="/static/logo.png"></image>
+		<view class="text-area">
+			<text class="title" @click="areaChoose">{{title}}</text>
+		</view>
+		<view class="box" v-if="e">
+			{{e}}
+		</view>
+		<area-select ref='areaChoose' @areaComplete='areaComplete'></area-select>
+	</view>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      list1: [
-        "https://cdn.uviewui.com/uview/swiper/swiper1.png",
-        "https://cdn.uviewui.com/uview/swiper/swiper2.png",
-        "https://cdn.uviewui.com/uview/swiper/swiper3.png",
-        "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230630_ba323e2251204d5c9c126c09057800d4.png",
-      ],
-      serveList: [
-        {
-          name: "上门开锁",
-          icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_4690767a19544d4bbd29c62fcdc36e54.png",
-          bgcolor: "#e0faf6",
-          color: "#0A7563",
-        },
-        {
-          name: "家电维修",
-          icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_41ae26b6f6a74568ba0097b8e2850260.png",
-          bgcolor: "#fae4e0",
-          color: "#8D200F",
-        },
-        {
-          name: "旧房改造",
-          icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_022f3c3d39944ead892c4abba170806e.png",
-          bgcolor: "#e5f0fd",
-          color: "#0D5987",
-        },
-        {
-          name: "宠物寄养",
-          icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_2110cb59eb2246f08da8766e9bff9ada.png",
-          bgcolor: "#fef7db",
-        },
-      ],
+	import areaSelect from '@/components/area-choose/area-choose.vue'
+	export default {
+		components: {
+			areaSelect
+		},
+		data() {
+			return {
+				title: 'Hello,click',
+				e:''
+			}
+		},
+		onLoad() {
 
-      // footerList: [
-      //   {
-      //     text: "车务代办",
-      //     imageUrl:
-      //       "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_4960ee5e309b4cc5ab34885695d9a215.png",
-      //   },
-      //   {
-      //     text: "房屋租售",
-      //     imageUrl:
-      //       "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_de787275aa734380a86d14a2437c7d2a.png",
-      //   },
-      // ],
-    };
-  },
-  methods: {},
-};
+		},
+		methods: {
+			areaComplete(e) {
+				console.log(e);
+				this.e=e
+			},
+			areaChoose() {
+				this.$refs.areaChoose.show()
+			},
+		}
+	}
 </script>
 
-<style lang="scss" scoped>
-.home {
-  width: 100vw;
+<style>
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
 
-  &-application {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 160rpx;
-    grid-gap: 10px;
+	.logo {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+	}
 
-    .box1 {
-      background-color: #bfc;
-      grid-column-start: 1;
-      grid-row-start: 1;
-      grid-row-end: 3;
-      background: url("https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_a606227ff79040d7aff76d50d6c648cd.png");
-      background-size: 100% 100%;
-    }
+	.text-area {
+		display: flex;
+		justify-content: center;
+	}
 
-    .box2 {
-      background: url("https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_aba5a2676f274d9ca748a322e7116dc3.png");
-      background-size: 100% 100%;
-    }
-
-    .box3 {
-      background: url("https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_58959d4f4b314fc69d396f2b0abca33e.png");
-      background-size: 100% 100%;
-    }
-
-    &-item {
-      border: 1px solid red;
-    }
-  }
-
-  &-serve {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 216rpx;
-    gap: 10px;
-
-    &-item {
-      text-align: center;
-      // border: 1px solid red;
-      font-size: 22rpx;
-      color: #0a7563;
-      border-radius: 20rpx;
-
-      &-name {
-        margin: 20rpx 0 40rpx 0;
-      }
-    }
-  }
-
-  &-other {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 216rpx;
-    gap: 10px;
-    margin-top: 32rpx;
-
-    &-item {
-      font-size: 36rpx;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .footer1 {
-      background: url("https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_7db0cd5fc9164d14aef33b0bc7e3ac4d.png");
-      background-size: cover;
-    }
-    .footer2 {
-      background: url("https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_6f645f7e58564f579d57321fa79deab9.png");
-      background-size: cover;
-    }
-  }
-}
+	.title {
+		font-size: 36rpx;
+		color: #8f8f94;
+	}
 </style>
