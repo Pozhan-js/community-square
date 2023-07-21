@@ -13,7 +13,8 @@
             v-if="isAgreement"
             class="login-wx circle-button"
             open-type="getPhoneNumber"
-            @getphonenumber="wxLogin">
+            @getphonenumber="wxLogin"
+          >
             手机号快捷登录
           </button>
           <button v-else class="login-wx circle-button" @click="loginPrompt">
@@ -37,6 +38,7 @@ export default {
   data() {
     return {
       isAgreement: false,
+      errText: "",
       agreementText: "我已阅读并同意#user[用户协议]、#privacy[隐私政策]",
     };
   },
@@ -61,8 +63,9 @@ export default {
     },
     wxLogin(e) {
       const { code } = e.detail;
+      console.log(e);
       if (code) {
-        this.phoneLogin(e).then(() => this.$helper.rollback({ timeout: 1200 }));
+        this.phoneLogin(e).then(() => this.$helper.rollback(1200));
       }
     },
   },

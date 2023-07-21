@@ -86,7 +86,7 @@ export default {
      * @param {Object} mobilePhone 手机号
      */
     codeLogin(code, mobilePhone) {
-      return this._userLogin({ type: 2, code, mobilePhone });
+      return this._userLogin({ type: 3, code, mobilePhone });
     },
     /**
      * @description 手机号登录

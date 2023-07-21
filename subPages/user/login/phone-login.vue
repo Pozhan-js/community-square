@@ -48,7 +48,7 @@
       ref="uCode"
       @change="codeChange"
       @start="start"
-      :seconds="$constants.CODE_SECONDS"
+      :seconds="seconds"
       changeText="X秒" />
     <image class="phone-login-bg" mode="widthFix" :src="background.bottom" />
   </view>
@@ -67,8 +67,8 @@ export default {
     return {
       tips: "",
       form: {
-        phone: "",
         code: "",
+        phone: "",
       },
       focus: "",
       isAgreement: false,
@@ -83,6 +83,11 @@ export default {
       agreementText: "我已阅读并同意#register[注册会员服务条款]",
     };
   },
+  computed: {
+    seconds() {
+      return this.$constants.CODE_SECONDS;
+    },
+  },
   methods: {
     async login() {
       if (this.lock) return;
@@ -90,7 +95,7 @@ export default {
         this.lock = true;
         try {
           await this.codeLogin.apply(this, Object.values(this.form));
-          this.$helper.rollback({ timeout: 1200, delta: 2 });
+          this.$helper.rollback(1200, { delta: 2 });
         } catch {
           this.lock = false;
         }
