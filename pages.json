@@ -24,7 +24,8 @@
 		{
 			"path": "pages/user/user",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom"
 			}
 		}
 	],
@@ -62,6 +63,24 @@
 					"path": "settings/settings",
 					"style": {
 						"navigationBarTitleText": "设置"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "address/address",
+					"style": {
+						"navigationBarTitleText": "地址管理"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "message/message",
+					"style": {
+						"navigationBarTitleText": "消息"
 					},
 					"meta": {
 						"verifyLogin": true
