@@ -11,7 +11,8 @@
       <view v-if="isLogin" class="user-info flex-col flex-grow justify-evenly">
         <!-- 电话展示 -->
         <text class="user-name text_ellipsis">{{ realName }}</text>
-        <text class="study-days">学习{{ studyDays }}天</text>
+        <!-- 学习{{ studyDays }}天 -->
+        <text class="study-days">王阿姨</text>
       </view>
       <!-- 未登录展示 -->
       <view
@@ -34,12 +35,12 @@
         <view>我发布的</view>
       </view>
       <view class="user-types-item">
-        <view class="num">2</view>
-        <view>我发布的</view>
+        <view class="num">18</view>
+        <view>我收藏的</view>
       </view>
       <view class="user-types-item">
-        <view class="num">2</view>
-        <view>我发布的</view>
+        <view class="num">36</view>
+        <view>我的足迹</view>
       </view>
     </view>
 
@@ -61,7 +62,7 @@
         <view
           class="content-item"
           v-for="(item, index) in contentList"
-          @click="handleBodyItemClick(item.path)"
+          @click="handleBodyItemClick(item.path, index)"
           :key="index"
         >
           <image style="width: 44rpx; height: 56rpx" :src="item.icon" mode="" />
@@ -108,22 +109,22 @@ export default {
       contentList: [
         {
           title: "全部",
-          path: getPath("all-order"),
+          path: getPath("appointment-order"),
           icon: getIcon("all-order"),
         },
         {
           title: "待支付",
-          path: getPath("payment-order"),
+          path: getPath("appointment-order"),
           icon: getIcon("payment-order"),
         },
         {
           title: "已完成",
-          path: getPath("success-order"),
+          path: getPath("appointment-order"),
           icon: getIcon("success-order"),
         },
         {
           title: "已取消",
-          path: getPath("cancel-order"),
+          path: getPath("appointment-order"),
           icon: getIcon("cancel-order"),
         },
       ],
@@ -158,9 +159,18 @@ export default {
      * @param {*} path
      * @return {*}
      */
-    handleBodyItemClick(path) {
-      this.$jump(path);
+    handleBodyItemClick(path,index) {
+      this.$jump(path, { query: {tabIndex:index} });
     },
+
+    /**
+     * @description: 跳转页面
+     * @param {*} path
+     * @return {*}
+     */
+    // handleToAppointmentOrder(){
+    //   this.$jump('/subPages/user/appointment-order/appointment-order',{query:{}})
+    // }
   },
 };
 </script>

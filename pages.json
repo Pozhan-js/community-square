@@ -85,6 +85,24 @@
 					"meta": {
 						"verifyLogin": true
 					}
+				},
+				{
+					"path": "appointment-order/appointment-order",
+					"style": {
+						"navigationBarTitleText": "预约订单"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "evaluate/evaluate",
+					"style": {
+						"navigationBarTitleText": "评价"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
 				}
 			]
 		},
