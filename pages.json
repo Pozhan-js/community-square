@@ -103,6 +103,15 @@
 					"meta": {
 						"verifyLogin": true
 					}
+				},
+				{
+					"path": "my-order/my-order",
+					"style": {
+						"navigationBarTitleText": "我的订单"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
 				}
 			]
 		},

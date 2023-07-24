@@ -32,7 +32,9 @@
               type="text"
               v-model="addressData.address"
             />
-            <image src="/static/images/home/right.png" class="rights"></image>
+            <!-- <image src="/static/images/home/right.png" class="rights"></image>
+             -->
+            <u-icon name="arrow-right"></u-icon>
           </view>
         </view>
         <view class="row">

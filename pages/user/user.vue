@@ -30,17 +30,14 @@
 
     <!-- 我的页面功能 -->
     <view class="user-types flex-a-center-j-space-around">
-      <view class="user-types-item">
-        <view class="num">2</view>
-        <view>我发布的</view>
-      </view>
-      <view class="user-types-item">
-        <view class="num">18</view>
-        <view>我收藏的</view>
-      </view>
-      <view class="user-types-item">
-        <view class="num">36</view>
-        <view>我的足迹</view>
+      <view
+        class="user-types-item"
+        v-for="(type, index) in typeList"
+        :key="index"
+        @click="toMyOrderPage(type.path, index)"
+      >
+        <view class="num">{{ type.num }}</view>
+        <view>{{ type.title }}</view>
       </view>
     </view>
 
@@ -128,6 +125,23 @@ export default {
           icon: getIcon("cancel-order"),
         },
       ],
+      typeList: [
+        {
+          title: "我发布的",
+          path: getPath("my-order"),
+          num: 2,
+        },
+        {
+          title: "我收藏的",
+          path: getPath("my-order"),
+          num: 18,
+        },
+        {
+          title: "我的足迹",
+          path: getPath("my-order"),
+          num: 36,
+        },
+      ],
     };
   },
   computed: {
@@ -159,18 +173,13 @@ export default {
      * @param {*} path
      * @return {*}
      */
-    handleBodyItemClick(path,index) {
-      this.$jump(path, { query: {tabIndex:index} });
+    handleBodyItemClick(path, index) {
+      this.$jump(path, { query: { tabIndex: index } });
     },
 
-    /**
-     * @description: 跳转页面
-     * @param {*} path
-     * @return {*}
-     */
-    // handleToAppointmentOrder(){
-    //   this.$jump('/subPages/user/appointment-order/appointment-order',{query:{}})
-    // }
+    toMyOrderPage(url) {
+      this.$jump(url);
+    },
   },
 };
 </script>

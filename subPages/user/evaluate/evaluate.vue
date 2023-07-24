@@ -2,7 +2,7 @@
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-07-24 12:32:04
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-24 15:14:39
+ * @LastEditTime: 2023-07-24 15:33:05
  * @FilePath: /community-square/subPages/user/evaluate/evaluate.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -56,6 +56,8 @@
         ></u--textarea>
       </view>
     </view>
+
+    <view class="evaluate-bottom">发布</view>
   </view>
 </template>
 
@@ -125,6 +127,7 @@ export default {
   width: 100vw;
   height: 100vh;
   background: #f8f9fd;
+  position: relative;
 
   &-content {
     height: 416rpx;
@@ -153,9 +156,23 @@ export default {
         }
       }
     }
+  }
 
-    &-footer {
-    }
+  &-bottom {
+    width: 600rpx;
+    height: 88rpx;
+    background: #5991fa;
+    box-shadow: 0rpx 6rpx 10rpx 1rpx rgba(0, 0, 0, 0.16);
+    border-radius: 61rpx;
+    position: fixed;
+    bottom: 100rpx;
+    left: 50%;
+    line-height: 88rpx;
+    text-align: center;
+    margin-left: -300rpx;
+    font-size: 38rpx;
+    font-weight: bold;
+    color: #ffffff;
   }
 }
 </style>
