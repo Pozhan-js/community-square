@@ -107,7 +107,8 @@
 				{
 					"path": "my-order/my-order",
 					"style": {
-						"navigationBarTitleText": "我的订单"
+						"navigationBarTitleText": "我的订单",
+						"navigationStyle": "custom"
 					},
 					"meta": {
 						"verifyLogin": true
@@ -119,33 +120,107 @@
 			"root": "subPages/square",
 			"pages": [
 				{
+					"path": "product-detail",
+					"style": {
+						"navigationBarTitleText": "详情"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
 					"path": "reserve",
 					"style": {
 						"navigationBarTitleText": "预约"
+					},
+					"meta": {
+						"verifyLogin": true
 					}
 				},
 				{
 					"path": "address-manage",
 					"style": {
 						"navigationBarTitleText": "地址管理"
+					},
+					"meta": {
+						"verifyLogin": true
 					}
 				},
 				{
 					"path": "edit-address",
 					"style": {
 						"navigationBarTitleText": "编辑地址"
+					},
+					"meta": {
+						"verifyLogin": true
 					}
 				},
 				{
 					"path": "pay-result",
 					"style": {
 						"navigationBarTitleText": "支付结果"
+					},
+					"meta": {
+						"verifyLogin": true
 					}
 				},
 				{
 					"path": "order-detail",
 					"style": {
 						"navigationBarTitleText": "订单详情"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "chat",
+					"style": {
+						"navigationBarTitleText": "聊天"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				}
+			]
+		},
+		{
+			"root": "subPages/release",
+			"pages": [
+				{
+					"path": "house-release",
+					"style": {
+						"navigationBarTitleText": "房屋"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "car-release",
+					"style": {
+						"navigationBarTitleText": "车务"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "pet-release",
+					"style": {
+						"navigationBarTitleText": "宠物"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "other-release",
+					"style": {
+						"navigationBarTitleText": "其他"
+					},
+					"meta": {
+						"verifyLogin": true
 					}
 				}
 			]

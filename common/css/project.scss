@@ -252,6 +252,11 @@ $nums: (
   justify-content: center;
 }
 
+.flex-j-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .flex-a-center-j-space-between {
   display: flex;
   align-items: center;

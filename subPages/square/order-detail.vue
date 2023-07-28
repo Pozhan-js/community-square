@@ -2,7 +2,7 @@
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-07-20 17:17:02
  * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-24 11:47:01
+ * @LastEditTime: 2023-07-28 10:27:38
  * @FilePath: /community-square/subPages/square/order-detail.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -105,6 +105,7 @@ export default {
         url: "/subPages/square/reserve",
       });
     },
+
     showModel() {
       this.show = true;
     },

@@ -72,11 +72,11 @@ export default {
     };
   },
   methods: {
-   toDetail(){
-    uni.navigateTo({
-       url:'/subPages/square/reserve'
-    });
-   }
+    toDetail() {
+      uni.navigateTo({
+        url: "/subPages/square/product-detail",
+      });
+    },
   },
 };
 </script>

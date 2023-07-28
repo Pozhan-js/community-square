@@ -10,9 +10,9 @@
       <!-- 登录后展示 -->
       <view v-if="isLogin" class="user-info flex-col flex-grow justify-evenly">
         <!-- 电话展示 -->
-        <text class="user-name text_ellipsis">{{ realName }}</text>
+        <text class="user-name text_ellipsis">王阿姨</text>
         <!-- 学习{{ studyDays }}天 -->
-        <text class="study-days">王阿姨</text>
+        <text class="study-days">{{ realName }}</text>
       </view>
       <!-- 未登录展示 -->
       <view
@@ -34,7 +34,7 @@
         class="user-types-item"
         v-for="(type, index) in typeList"
         :key="index"
-        @click="toMyOrderPage(type.path, index)"
+        @click="toMyOrderPage(type.path, type.title)"
       >
         <view class="num">{{ type.num }}</view>
         <view>{{ type.title }}</view>
@@ -177,8 +177,30 @@ export default {
       this.$jump(path, { query: { tabIndex: index } });
     },
 
-    toMyOrderPage(url) {
-      this.$jump(url);
+    toMyOrderPage(url, title) {
+      switch (title) {
+        case "我发布的":
+          this.$jump(url, {
+            query: {
+              title,
+            },
+          });
+          break;
+        case "我收藏的":
+          this.$jump(url, {
+            query: {
+              title,
+            },
+          });
+          break;
+        case "我的足迹":
+          this.$jump(url, {
+            query: {
+              title,
+            },
+          });
+          break;
+      }
     },
   },
 };
