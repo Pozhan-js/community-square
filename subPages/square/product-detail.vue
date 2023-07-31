@@ -1,8 +1,8 @@
 <!--
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-07-27 15:20:55
- * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-28 10:27:52
+ * @LastEditors: hashMi 854059946@qq.com
+ * @LastEditTime: 2023-07-31 12:52:23
  * @FilePath: /community-square/subPages/square/product-detail.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -70,7 +70,12 @@
 
       <view class="flex-a-center right-icon">
         <view>
-          <u-icon name="chat-fill" color="#f0c456" size="30"></u-icon>
+          <u-icon
+            name="chat-fill"
+            color="#f0c456"
+            size="30"
+            @click="toChatPage"
+          ></u-icon>
         </view>
         <view>
           <u-icon name="phone-fill" color="#6492f3" size="30"></u-icon>
@@ -82,13 +87,20 @@
 
     <view class="product-detail-footer flex-a-center-j-space-around">
       <view class="footer-icon">
-        <u-icon
+        <!-- <u-icon
           name="star-fill"
           size="24"
           label="收藏"
           labelPos="bottom"
           labelSize="12"
-        ></u-icon>
+        ></u-icon> -->
+        <view class="example-body">
+          <uni-fav
+            :checked="checkStatus"
+            :content-text="contentText"
+            @click="favClick(4)"
+          />
+        </view>
       </view>
       <u-button
         type="warning"
@@ -120,6 +132,11 @@ export default {
         marginRight: "20px", // 注意驼峰命名，并且值必须用引号包括，因为这是对象
         // color: "red",
       },
+      checkStatus: false,
+      contentText: {
+        contentDefault: "收藏",
+        contentFav: "已收藏",
+      },
     };
   },
   methods: {
@@ -128,6 +145,11 @@ export default {
       uni.navigateTo({
         url: "/subPages/square/chat",
       });
+    },
+    favClick(index) {
+      this.checkStatus = !this.checkStatus;
+      // console.log(this.checkList[index]);
+      this.$forceUpdate();
     },
   },
 };

@@ -72,6 +72,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * @description: 跳转到详情页
+     * @return {*}
+     */
     toDetail() {
       uni.navigateTo({
         url: "/subPages/square/product-detail",

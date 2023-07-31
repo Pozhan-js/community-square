@@ -1,8 +1,8 @@
 <!--
  * @Author: Why so serious my dear 854059946@qq.com
  * @Date: 2023-05-29 16:07:39
- * @LastEditors: Why so serious my dear 854059946@qq.com
- * @LastEditTime: 2023-07-20 16:29:00
+ * @LastEditors: hashMi 854059946@qq.com
+ * @LastEditTime: 2023-07-31 15:39:07
  * @FilePath: /community-square/pages/index/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,9 +12,11 @@
 
     <!-- body布局 -->
     <view class="home-application box-all">
-      <view class="box1 padding-30">废品回收</view>
-      <view class="box2 padding-30">日常保洁</view>
-      <view class="box3 padding-30">新居开荒</view>
+      <view class="box1 padding-30" @click.stop="toGarbageCollection"
+        >废品回收</view
+      >
+      <view class="box2 padding-30" @click.stop="toClearPage">日常保洁</view>
+      <view class="box3 padding-30" @click.stop="toNewHouse">新居开荒</view>
     </view>
 
     <!-- 社区服务 -->
@@ -23,6 +25,7 @@
         class="home-serve-item"
         v-for="(item, _) in serveList"
         :key="_"
+        @click.stop="toServeListPage(item.path)"
         :style="{ backgroundColor: item.bgcolor, color: item.color }"
       >
         <view class="home-serve-item-name">{{ item.name }}</view>
@@ -53,41 +56,69 @@ export default {
           icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_4690767a19544d4bbd29c62fcdc36e54.png",
           bgcolor: "#e0faf6",
           color: "#0A7563",
+          path: "/subPages/home/unlock",
         },
         {
           name: "家电维修",
           icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_41ae26b6f6a74568ba0097b8e2850260.png",
           bgcolor: "#fae4e0",
           color: "#8D200F",
+          path: "/subPages/home/appliance-repair",
         },
         {
           name: "旧房改造",
           icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_022f3c3d39944ead892c4abba170806e.png",
           bgcolor: "#e5f0fd",
           color: "#0D5987",
+          path: "/subPages/home/unlock",
         },
         {
           name: "宠物寄养",
           icon: "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_2110cb59eb2246f08da8766e9bff9ada.png",
           bgcolor: "#fef7db",
+          path: "/subPages/home/unlock",
         },
       ],
-
-      // footerList: [
-      //   {
-      //     text: "车务代办",
-      //     imageUrl:
-      //       "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_4960ee5e309b4cc5ab34885695d9a215.png",
-      //   },
-      //   {
-      //     text: "房屋租售",
-      //     imageUrl:
-      //       "https://kindoucloud.com:8077/api/mongoFile/Image/systemicon/SmartPark/20230718_de787275aa734380a86d14a2437c7d2a.png",
-      //   },
-      // ],
     };
   },
-  methods: {},
+  methods: {
+    /**
+     * @description: 跳转到垃圾回收页面
+     * @return {*}
+     */
+    toGarbageCollection() {
+      uni.navigateTo({
+        url: "/subPages/home/garbage-collection",
+      });
+    },
+    /**
+     * @description: 挑转到日产清洁页面
+     * @return {*}
+     */
+    toClearPage() {
+      uni.navigateTo({
+        url: "/subPages/home/clear",
+      });
+    },
+    /**
+     * @description: 跳转到新居开荒页面
+     * @return {*}
+     */
+    toNewHouse() {
+      uni.navigateTo({
+        url: "/subPages/home/new-house",
+      });
+    },
+    /**
+     * @description: 跳转到开锁页面
+     * @return {*}
+     */
+    toServeListPage(url) {
+      uni.navigateTo({
+        url,
+      });
+    },
+  },
 };
 </script>
 

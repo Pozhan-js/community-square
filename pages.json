@@ -224,6 +224,74 @@
 					}
 				}
 			]
+		},
+		{
+			"root": "subPages/home",
+			"pages": [
+				{
+					"path": "garbage-collection",
+					"style": {
+						"navigationBarTitleText": "垃圾回收"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "clear",
+					"style": {
+						"navigationBarTitleText": "日常清洁"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "clear-detail",
+					"style": {
+						"navigationBarTitleText": "清洁详情"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "home-reserve",
+					"style": {
+						"navigationBarTitleText": "社区服务预约"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "new-house",
+					"style": {
+						"navigationBarTitleText": "新居开荒"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "unlock",
+					"style": {
+						"navigationBarTitleText": "上门开锁"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				},
+				{
+					"path": "appliance-repair",
+					"style": {
+						"navigationBarTitleText": "家电维修"
+					},
+					"meta": {
+						"verifyLogin": true
+					}
+				}
+			]
 		}
 	],
 	"tabBar": {
